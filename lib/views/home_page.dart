@@ -28,15 +28,21 @@ class _HomePageState extends State<HomePage> {
           // the App.build method, and use it to set our appbar title.
           title: const Text("Fortress Assignment App"),
         ),
-        body: ListView.builder(
-            itemCount:
-                Provider.of<HomePageViewModel>(context).listOfTopics.length,
-            itemBuilder: (_, index) {
-              Topic topic =
-                  Provider.of<HomePageViewModel>(context).listOfTopics[index];
-              return TopicWidget(
-                topic: topic,
-              );
-            }));
+        body: Provider.of<HomePageViewModel>(context).isLoading
+            ? const Center(
+                child: CircularProgressIndicator(
+                  semanticsLabel: "Loading Topics",
+                ),
+              )
+            : ListView.builder(
+                itemCount:
+                    Provider.of<HomePageViewModel>(context).listOfTopics.length,
+                itemBuilder: (_, index) {
+                  Topic topic = Provider.of<HomePageViewModel>(context)
+                      .listOfTopics[index];
+                  return TopicWidget(
+                    topic: topic,
+                  );
+                }));
   }
 }

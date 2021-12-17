@@ -4,10 +4,15 @@ import 'package:fortress_assignment/services/reddit_service.dart';
 
 class HomePageViewModel extends ChangeNotifier {
   final RedditService redditService = RedditService();
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
   List<Topic> _listOfTopics = [];
   List<Topic> get listOfTopics => _listOfTopics;
 
   Future<void> getListOfSortedTopics() async {
+    _isLoading = true;
+    notifyListeners();
     try {
       var topics = await redditService.getTopTopics();
       _listOfTopics = topics.take(20).toList(growable: false);
@@ -15,6 +20,7 @@ class HomePageViewModel extends ChangeNotifier {
     } catch (e) {
       throw Exception('Failed to get data');
     }
+    _isLoading = false;
     notifyListeners();
   }
 }
