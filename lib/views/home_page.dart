@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     var viewModel = Provider.of<HomePageViewModel>(context, listen: false);
+    viewModel.getListOfSortedTopics();
   }
 
   Widget build(BuildContext context) {

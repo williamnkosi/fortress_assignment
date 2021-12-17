@@ -9,8 +9,8 @@ class HomePageViewModel extends ChangeNotifier {
 
   Future<void> getListOfSortedTopics() async {
     try {
-      var test = await redditService.getTopTopics();
-      _listOfTopics = test.take(20).toList(growable: false);
+      var topics = await redditService.getTopTopics();
+      _listOfTopics = topics.take(20).toList(growable: false);
       _listOfTopics.sort((a, b) => b.comments!.compareTo(a.comments!));
     } catch (e) {
       throw Exception('Failed to get data');
