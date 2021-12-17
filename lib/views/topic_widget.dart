@@ -16,17 +16,17 @@ class TopicWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField("Title: ", topic.title!),
-            TextField("Author: ", topic.author!),
-            TextField("upVotes: ", topic.upVotes!.toString()),
-            TextField("Comments: ", topic.comments!.toString())
+            textField("Title: ", topic.title!),
+            textField("Author: ", topic.author!),
+            textField("upVotes: ", topic.upVotes!.toString()),
+            textField("Comments: ", topic.comments!.toString())
           ],
         ),
       ),
     );
   }
 
-  Row TextField(String label, String text) {
+  Row textField(String label, String text) {
     return Row(
       children: [
         Text(

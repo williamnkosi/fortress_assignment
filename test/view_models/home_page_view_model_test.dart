@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fortress_assignment/services/reddit_service.dart';
 import 'package:fortress_assignment/view_models/home_page_view_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:fortress_assignment/models/topic.dart';
 import 'dart:math';

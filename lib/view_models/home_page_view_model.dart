@@ -5,14 +5,12 @@ import 'package:fortress_assignment/services/reddit_service.dart';
 class HomePageViewModel extends ChangeNotifier {
   final RedditService redditService = RedditService();
 
-  bool _isLoading = false;
+  bool _isLoading = true;
   bool get isLoading => _isLoading;
   List<Topic> _listOfTopics = [];
   List<Topic> get listOfTopics => _listOfTopics;
 
   Future<void> getListOfSortedTopics() async {
-    _isLoading = true;
-    notifyListeners();
     try {
       var topics = await redditService.getTopTopics();
       _listOfTopics = topics.take(20).toList(growable: false);
