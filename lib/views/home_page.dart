@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fortress_assignment/services/reddit_service.dart';
+import 'package:fortress_assignment/view_models/home_page_view_model.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -13,8 +14,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     print("hello");
-    RedditService test = new RedditService();
-    test.getTopTopics();
+    HomePageViewModel viewModel = HomePageViewModel();
+    viewModel.getTopics();
   }
 
   Widget build(BuildContext context) {
