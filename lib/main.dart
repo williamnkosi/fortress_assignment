@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fortress_assignment/view_models/home_page_view_model.dart';
 import 'package:fortress_assignment/views/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => HomePageViewModel())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

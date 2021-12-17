@@ -7,7 +7,7 @@ class HomePageViewModel extends ChangeNotifier {
   List<Topic> _listOfTopics = [];
   List<Topic> get listOfTopics => _listOfTopics;
 
-  Future<void> getTopics() async {
+  Future<void> getListOfSortedTopics() async {
     try {
       var test = await redditService.getTopTopics();
       _listOfTopics = test.take(20).toList(growable: false);
