@@ -7,9 +7,9 @@ class Topic {
   Topic({this.title, this.author, this.upVotes, this.comments});
 
   Topic.fromMap(Map<String, dynamic> map) {
-    title = map['title'];
-    author = map['author'];
-    upVotes = map['upVotes'];
-    comments = map['commtent'];
+    title = map["permalink"] ?? "";
+    author = map["author"] ?? "";
+    upVotes = map["ups"];
+    comments = map["num_comments"];
   }
 }

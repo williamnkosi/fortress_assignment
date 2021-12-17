@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fortress_assignment/services/reddit_service.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -8,6 +9,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    print("hello");
+    RedditService test = new RedditService();
+    test.getTopTopics();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
