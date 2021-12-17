@@ -8,7 +8,8 @@ import 'mock_topics_json.dart';
 class MockHttp extends Mock implements http.Client {}
 
 void main() {
-  test('reddit service ...', () async {
+  test('reddit service - When getTopTopics() is called, return list of Topics ',
+      () async {
     final client = MockHttp();
     var url = Uri.https("www.reddit.com", "/r/programmerhumor/top.json");
     final redditService = RedditService();
