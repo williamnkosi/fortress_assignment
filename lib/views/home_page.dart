@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fortress_assignment/models/topic.dart';
 import 'package:fortress_assignment/services/reddit_service.dart';
 import 'package:fortress_assignment/view_models/home_page_view_model.dart';
+import 'package:fortress_assignment/views/topic_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +20,7 @@ class _HomePageState extends State<HomePage> {
     viewModel.getListOfSortedTopics();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -25,8 +28,15 @@ class _HomePageState extends State<HomePage> {
           // the App.build method, and use it to set our appbar title.
           title: const Text("Fortress Assignment App"),
         ),
-        body: const Center(
-          child: Text("Home Page"),
-        ));
+        body: ListView.builder(
+            itemCount:
+                Provider.of<HomePageViewModel>(context).listOfTopics.length,
+            itemBuilder: (_, index) {
+              Topic topic =
+                  Provider.of<HomePageViewModel>(context).listOfTopics[index];
+              return TopicWidget(
+                topic: topic,
+              );
+            }));
   }
 }
